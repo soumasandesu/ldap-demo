@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LDAP principal</title>
+</head>
+<body>
+<main>
+    <h1>Signed in</h1>
+    <p>
+        <strong>Identity:</strong>
+        <span th:text="${profile.identity.name}"></span>
+    </p>
+    <p>
+        <strong>Principal type:</strong>
+        <span th:text="${profile.identity.principalType}"></span>
+    </p>
+    <p>
+        <strong>Authorities:</strong>
+        <span th:text="${profile.identity.authorities}"></span>
+    </p>
+    <p th:if="${profile.identity.dn}">
+        <strong>DN:</strong>
+        <span th:text="${profile.identity.dn}"></span>
+    </p>
+
+    <h2>LDAP attributes</h2>
+    <table>
+        <thead>
+        <tr>
+            <th scope="col">Attribute</th>
+            <th scope="col">Value(s)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="entry : ${profile.ldapAttributes}">
+            <th scope="row" th:text="${entry.key}"></th>
+            <td th:text="${entry.value}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><a href="/api/me">Open API response</a></p>
+    <p><a href="/logout">Logout</a></p>
+</main>
+</body>
+</html>

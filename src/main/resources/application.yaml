@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: ldap-demo
+  ldap:
+    urls: ${LDAP_URL:ldap://localhost:3890}
+    base: ${LDAP_BASE:dc=example,dc=com}
+
+app:
+  ldap:
+    people-search-base: ${LDAP_PEOPLE_SEARCH_BASE:ou=people}
+  jwt:
+    secret: ${JWT_SECRET:change-this-development-secret-key-please}
+    cookie-name: ${JWT_COOKIE_NAME:JWT_TOKEN}
+  sso:
+    cookie:
+      name: ${SSO_COOKIE_NAME:SSO_TOKEN}
+      domain: ${SSO_COOKIE_DOMAIN:}
+      secure: ${SSO_COOKIE_SECURE:false}
+      same-site: ${SSO_COOKIE_SAME_SITE:Lax}
+      max-age: ${SSO_COOKIE_MAX_AGE:3600}
