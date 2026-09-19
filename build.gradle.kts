@@ -37,6 +37,7 @@ dependencies {
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.12.6")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     testImplementation("org.springframework.boot:spring-boot-starter-thymeleaf-test")
+    implementation("org.apache.commons:commons-lang3:3.20.0")
 }
 
 tasks.withType<Test> {
